@@ -1,6 +1,6 @@
-# DraconDex-Plugin-Native (AI Native)
+# DraconDex-PGI-AINative (AI Native)
 
-A read-only reference plugin for [DraconDex](https://github.com/LDKTC/App-DraconDex)
+A read-only reference plugin for [DraconDex](https://github.com/ZYDRAXYL/DraconDex-APP)
 that publishes what this app *is* and what a plugin *can do* — as one file,
 [`catalog.json`](catalog.json) — so both a human and an AI chat plugin have
 somewhere to look it up instead of guessing.
@@ -13,7 +13,7 @@ uninstalling it deletes no tables, because it declares none.
 Prefer a terminal, or don't have DraconDex installed at all? `node
 scripts/print-catalog.mjs` prints the same catalog from the CLI, and `node
 scripts/print-catalog.mjs --preamble` prints the exact model-facing summary
-DraconDex-Plugin-Claude/-Ollama/-Codex compute from this file — from outside
+DraconDex-PGI-Claude/-Ollama/-Codex compute from this file — from outside
 this app, in their own plugin windows — so that function's usage is visible
 and testable here too, without installing three other plugins to see it. See
 [Developing](#developing).
@@ -24,12 +24,12 @@ and testable here too, without installing three other plugins to see it. See
 
 ## Why this exists
 
-[DraconDex-Plugin-Claude](https://github.com/LDKTC/DraconDex-Plugin-Claude),
-[-Ollama](https://github.com/LDKTC/DraconDex-Plugin-Ollama) and
-[-Codex](https://github.com/LDKTC/DraconDex-Plugin-Codex) are chat plugins —
+[DraconDex-PGI-Claude](https://github.com/ZYDRAXYL/DraconDex-PGI-Claude),
+[-Ollama](https://github.com/ZYDRAXYL/DraconDex-PGI-Ollama) and
+[-Codex](https://github.com/ZYDRAXYL/DraconDex-PGI-Codex) are chat plugins —
 each runs in its own sandboxed window with **no access to the app's data or to
 any other plugin's data** (see
-[App-DraconDex's `docs/PLUGINS.md`](https://github.com/LDKTC/App-DraconDex/blob/main/docs/PLUGINS.md)).
+[DraconDex-APP's `docs/PLUGINS.md`](https://github.com/ZYDRAXYL/DraconDex-APP/blob/main/docs/PLUGINS.md)).
 That sandbox doesn't loosen just because the AI on the other end would find
 some app context useful — so instead of reaching for another plugin's table,
 each of those three fetches `catalog.json` straight from this **public**
@@ -49,12 +49,12 @@ this one too — see [Install](#install).
 Normally you don't install this directly — installing Claude Chat, Ollama
 Chat or Codex Chat pulls it in automatically the first time (DraconDex
 4.8.0+; see §1.8 "Plugin dependencies" in
-[App-DraconDex's `docs/PLUGINS.md`](https://github.com/LDKTC/App-DraconDex/blob/main/docs/PLUGINS.md)).
+[DraconDex-APP's `docs/PLUGINS.md`](https://github.com/ZYDRAXYL/DraconDex-APP/blob/main/docs/PLUGINS.md)).
 Installing a second or third AI plugin afterward finds this one already
 present and skips it — no error, no duplicate.
 
 To install it on its own: **Settings → Plugin → Plugins**, paste
-`https://github.com/LDKTC/DraconDex-Plugin-Native`, confirm the preview.
+`https://github.com/ZYDRAXYL/DraconDex-PGI-AINative`, confirm the preview.
 
 ## What's in `catalog.json`
 

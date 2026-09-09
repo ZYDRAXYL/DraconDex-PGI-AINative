@@ -4,7 +4,7 @@
 // DraconDex install required.
 //
 // `--preamble` prints something different: not this repo's own rendering,
-// but the exact model-facing string that DraconDex-Plugin-Claude/-Ollama/
+// but the exact model-facing string that DraconDex-PGI-Claude/-Ollama/
 // -Codex compute from this file. Each of those runs in its own separate,
 // sandboxed plugin window and fetches catalog.json over plain HTTPS — see
 // README.md's "Why this exists" — so `preamble()` below is that function's
@@ -23,7 +23,7 @@ const HELP = `Usage: node scripts/print-catalog.mjs [options] [path/to/catalog.j
 Prints catalog.json for CLI viewing — no DraconDex install required.
 
 Options:
-  --preamble   Print the exact model-facing summary DraconDex-Plugin-Claude/
+  --preamble   Print the exact model-facing summary DraconDex-PGI-Claude/
                -Ollama/-Codex fold into their system prompt from this file,
                computed from outside this app, in their own plugin windows.
   -h, --help   Show this help.
@@ -47,7 +47,7 @@ try {
   process.exit(1);
 }
 
-// Mirrors preamble() in DraconDex-Plugin-Claude/-Ollama/-Codex's src/catalog.js.
+// Mirrors preamble() in DraconDex-PGI-Claude/-Ollama/-Codex's src/catalog.js.
 function preamble(c) {
   const lines = [];
   const appName = c.app?.name || 'DraconDex';
