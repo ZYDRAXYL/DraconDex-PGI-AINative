@@ -29,7 +29,7 @@
     "connector", "sketcher", "designer"
   ],
   "pluginCapabilities": {
-    "summary": "What a DraconDex plugin can and cannot do. Full architecture and honest security notes: https://github.com/LDKTC/App-DraconDex/blob/main/docs/PLUGINS.md",
+    "summary": "What a DraconDex plugin can and cannot do. Full architecture and honest security notes: https://github.com/ZYDRAXYL/DraconDex-APP/blob/main/docs/PLUGINS.md",
     "can": [
       "Store rows in its own SQLite table(s), declared in its manifest — window.pluginApi.table.{query,insert,update,delete,getSchema}",
       "Call the network, only to origins its own manifest lists in permissions.net — window.pluginApi.net.{fetch,stream}",

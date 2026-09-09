@@ -5,11 +5,11 @@
 // straight from disk — there's no capability that only exists once installed.
 //
 // The other half of the point is that catalog.json is also a real file at a
-// stable raw-GitHub URL: DraconDex-Plugin-Claude/-Ollama/-Codex fetch it
+// stable raw-GitHub URL: DraconDex-PGI-Claude/-Ollama/-Codex fetch it
 // directly (see their src/catalog.js) to give their connected model some
 // baseline knowledge of this app, since a plugin sandbox can never read
 // another plugin's files or tables directly — see
-// https://github.com/LDKTC/App-DraconDex/blob/main/docs/PLUGINS.md
+// https://github.com/ZYDRAXYL/DraconDex-APP/blob/main/docs/PLUGINS.md
 //
 // This window itself does NOT fetch catalog.json, even though it's sitting
 // right next to it: a plugin window is loaded via file://, which Chromium
