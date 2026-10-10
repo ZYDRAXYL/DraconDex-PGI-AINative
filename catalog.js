@@ -8,10 +8,10 @@
 // `;` must stay valid JSON on its own, so scripts/check-catalog-sync.mjs can
 // verify the two never drift apart without a JS parser.
 window.CATALOG = {
-  "catalogVersion": "1.0.0",
+  "catalogVersion": "1.1.0",
   "forApp": "DraconDex",
   "forAppMinVersion": "4.7.0",
-  "updated": "2026-08-12",
+  "updated": "2026-10-10",
   "app": {
     "name": "DraconDex",
     "tagline": "Novel & world-building data manager",
@@ -30,6 +30,8 @@ window.CATALOG = {
     { "id": "artisan", "name": "Artisan", "description": "Create new modules from templates." },
     { "id": "graph_view", "name": "Graph view", "description": "Visual graph of notes and entries linked by wikilinks or relations." },
     { "id": "drive_backup", "name": "Google Drive backup", "description": "Optional backup of the layout profile and/or database to the user's own Google Drive." },
+    { "id": "pages", "name": "Pages (v5)", "description": "Every module page is a stack of blocks — Properties (description, tags, typed property blocks), the kind's own view, and Related links — that the user can rearrange, adding text, headings, dividers, images, columns and components." },
+    { "id": "side_panel", "name": "Side panel (v5)", "description": "A panel beside the page, outside it, holding version history or one plugin panel at a time; it stays open while the user moves between pages." },
     { "id": "plugins", "name": "Plugins", "description": "Sandboxed third-party windows installed by pasting a git repo link. Each gets its own SQLite table(s), and no access to the app's data or other plugins' data. This catalog is published by one such plugin." }
   ],
   "moduleKinds": [
@@ -43,7 +45,7 @@ window.CATALOG = {
       "Store rows in its own SQLite table(s), declared in its manifest — window.pluginApi.table.{query,insert,update,delete,getSchema}",
       "Call the network, only to origins its own manifest lists in permissions.net — window.pluginApi.net.{fetch,stream}",
       "Run OAuth 2.0 + PKCE against an endpoint its manifest allows — window.pluginApi.oauth.authorize",
-      "Dock as a panel next to an open module and receive that module's id/name/kind, if its manifest declares permissions.context: [\"module\"]",
+      "Open as a panel in the side panel (DraconDex 5; it replaced the Module Inspector dock) and receive the open module's id/name/kind — again on every page change — if its manifest declares permissions.context: [\"module\"]",
       "Declare other plugins as a manifest \"dependencies\" list, so they install automatically the first time this plugin is installed"
     ],
     "cannot": [

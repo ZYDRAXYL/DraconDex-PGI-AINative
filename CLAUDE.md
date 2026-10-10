@@ -34,7 +34,9 @@ in [README.md](README.md) — read that first for anything not covered below.
 | `catalog.js` | Hand-kept copy of `catalog.json` as `window.CATALOG = {...}` — see above. |
 | `index.html` + `app.js` | Renders `window.CATALOG` for a human. |
 | `style.css` | Mirrors the app's dark theme tokens. |
-| `scripts/validate-manifest.mjs` | Local manifest check. Not shipped (not in manifest `files`). |
+| `tools/validate-manifest.mjs` | Local manifest check running the app's own `validateManifest()`. Not shipped (not in manifest `files`) |
+| `tools/plugin-manifest.cjs` + `plugin-contract.lock.json` | That function: DraconDex-EXE's `plugin-manifest.js`, vendored byte-identical at a pinned release. Never hand-edit; move the pin with `node tools/plugin-contract.mjs --vendor --ref vX.Y.Z`. |
+| `tools/plugin-contract.mjs` | Checks the vendored copy; `--upstream` says whether DraconDex moved past the pin. |
 | `scripts/check-catalog-sync.mjs` | Fails if `catalog.js` and `catalog.json` disagree. Not shipped. |
 | `scripts/print-catalog.mjs` | CLI viewer; `--preamble` prints the exact model-facing summary a chat plugin computes. Not shipped. |
 
@@ -44,7 +46,8 @@ an installing user — scripts, README, and CI cost nothing.
 ## Commands
 
 ```bash
-node scripts/validate-manifest.mjs        # same rules the app enforces on install
+node tools/validate-manifest.mjs          # the app's own rules (vendored), first error first
+node tools/plugin-contract.mjs            # the vendored copy matches plugin-contract.lock.json
 node --check app.js catalog.js scripts/print-catalog.mjs
 node scripts/check-catalog-sync.mjs       # run after editing catalog.json
 node scripts/print-catalog.mjs            # CLI view of the catalog

@@ -10,7 +10,7 @@
   --border: #2e2e3f;
   --t1: #e8e8f0;
   --t2: #9090a8;
-  --accent: #6366f1;
+  --accent: #585ced;   /* DraconDex 5 midnight: white on it 5.0:1 (#6366f1 was 4.47) */
   --danger: #ef4444;
   --ok: #4ade80;
   --r: 8px;
