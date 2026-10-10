@@ -1,7 +1,7 @@
 {
   "id": "ai_native",
   "name": "AI Native",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "entry": "index.html",
   "files": ["index.html", "app.js", "catalog.js", "style.css", "catalog.json"]
 }

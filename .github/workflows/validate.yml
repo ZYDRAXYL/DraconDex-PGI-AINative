@@ -15,9 +15,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Validate manifest
-        run: node scripts/validate-manifest.mjs
+          node-version: '22'
+      # tools/plugin-manifest.cjs is DraconDex-EXE's own plugin-manifest.js,
+      # vendored at the release pinned in plugin-contract.lock.json — so the
+      # next step is the app's verdict, not a re-typed copy of its rules.
+      - name: Vendored plugin contract is untouched
+        run: node tools/plugin-contract.mjs
+      - name: Validate manifest (the app's own rules)
+        run: node tools/validate-manifest.mjs
       - name: Parse plugin scripts
         run: |
           for f in app.js catalog.js scripts/print-catalog.mjs; do
@@ -34,3 +39,7 @@ jobs:
         run: |
           node scripts/print-catalog.mjs
           node scripts/print-catalog.mjs --preamble
+      # Advisory: says when DraconDex-EXE moved its contract past our pin.
+      - name: Has the plugin contract moved upstream?
+        run: node tools/plugin-contract.mjs --upstream
+        continue-on-error: true
